@@ -5,7 +5,7 @@ import avatar from '../images/Ellipse 1.png'
 function Header() {
     return (
         <>
-            <div className="grid-container">
+            <div className="grid-container-header">
                 <div className="item">   
                     <img src={logo} className="App-logo" alt="logo" />
                 </div>
