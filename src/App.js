@@ -1,12 +1,10 @@
-import Header from './components/Header';
-import Footer from './components/Footer';
+import Controller from './components/Controller';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Header/>
-        <Footer/>
+      <Controller/>
       </header>
     </div>
   );
