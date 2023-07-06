@@ -1,0 +1,42 @@
+@import "./utilities/variables";
+
+.grid-container-footer {
+    display: grid;
+    grid-template-columns: auto;
+    margin: 10px 50px 10px 0;
+    background-color: $whitecolor;  
+}
+
+.footer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.scheduele_button, .draft_button, .cancel_button {
+    margin: 0 2% 2% 0;
+    cursor: $pointer;
+}
+
+.scheduele_button, .draft_button {
+    width: 184px;
+    height: 45px;
+    flex-shrink: 0;
+    border-radius: 5px;
+    border: $bluecolor 1px solid;
+}
+
+.scheduele_button {
+    background-color: $bluecolor;
+    color: $whitecolor;
+}
+
+.draft_button {
+    background-color: $whitecolor;
+    color: $bluecolor;
+}
+
+.cancel_button {
+    border-color: transparent;
+    color: $bluecolor;
+    background-color: $whitecolor;
+}

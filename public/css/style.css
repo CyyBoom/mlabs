@@ -5,7 +5,6 @@
   margin-top: 1%;
   background-color: #FFFFFF; }
 
-/* Estilos Gerais */
 .item {
   margin: 0 5% 0 5%; }
 
@@ -28,38 +27,44 @@
   float: right;
   padding-left: 2%; }
 
+/*Colors*/
+/*Cursor*/
 .grid-container-footer {
   display: grid;
   grid-template-columns: auto;
-  margin-top: 1%; }
+  margin: 10px 50px 10px 0;
+  background-color: #FFFFFF; }
 
 .footer {
   display: flex;
   justify-content: flex-end; }
 
 .scheduele_button, .draft_button, .cancel_button {
-  margin: 0 2% 2% 0; }
+  margin: 0 2% 2% 0;
+  cursor: pointer; }
 
 .scheduele_button, .draft_button {
   width: 184px;
   height: 45px;
   flex-shrink: 0;
   border-radius: 5px;
-  border: #2F80ED 1px solid; }
+  border: #2596be 1px solid; }
 
 .scheduele_button {
-  background-color: #2F80ED;
+  background-color: #2596be;
   color: #FFFFFF; }
 
 .draft_button {
   background-color: #FFFFFF;
-  color: #2F80ED; }
+  color: #2596be; }
 
 .cancel_button {
   border-color: transparent;
-  color: #2F80ED;
+  color: #2596be;
   background-color: #FFFFFF; }
 
+/*Colors*/
+/*Cursor*/
 .grid-container-home {
   text-align: center; }
 
@@ -68,20 +73,20 @@
   height: 45px;
   flex-shrink: 0;
   border-radius: 5px;
-  border: #F2994A 1px solid;
+  border: 1px solid #F2994A;
   background-color: #E0812C;
   color: #FFFFFF;
   cursor: pointer;
   margin-top: 2%; }
 
-.grid-container-agendamento {
+/*Colors*/
+/*Cursor*/
+.grid-container-schedueler {
   display: grid;
-  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 10px;
   background-color: #E0E0E0;
-  padding: 10px;
-  margin-top: 2%;
-  margin-left: 2%; }
+  padding: 10px; }
 
 .posttext {
   grid-column: 1 / span 2; }
@@ -89,13 +94,22 @@
 .postpreview {
   grid-column: 3 / span 2;
   grid-row: 1 / span 3; }
+  .postpreview .previewwrapper {
+    display: flex;
+    align-items: center;
+    overflow-y: auto; }
+    .postpreview .previewwrapper .preview {
+      margin: 10px; }
 
-.socialmidia, .postdate, .posttext, .imageupload, .postpreview {
+.socialmidia_icons {
+  padding-left: 5%; }
+
+.socialmidia, .postdate, .posttext, .imageupload, .postpreview, .preview {
   border: 1px solid #989898;
   border-radius: 4px;
   background-color: #FFFFFF; }
 
-.socialmidia_tittle, .postdate_tittle, .posttext_tittle, .imageupload_tittle, .postpreview_tittle {
+.tittle {
   border-bottom: 1px solid #989898; }
 
 .instagram, .linkedin {
@@ -110,29 +124,25 @@
 [type="date"]::-webkit-calendar-picker-indicator {
   opacity: 0; }
 
-/* custom styles */
-body {
-  background: #e5e5e5;
-  font: 13px/1.4 Geneva, 'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif; }
+.dropzone {
+  border-radius: 4px;
+  border: 1px dashed #BDBDBD;
+  background: #FFFFFF;
+  text-align: center; }
 
-label {
-  display: block; }
+.image_message {
+  color: #828282; }
 
-input {
-  border: 1px solid #c4c4c4;
-  border-radius: 5px;
-  background-color: #fff;
-  padding: 3px 5px;
-  box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.1);
-  width: 138px;
-  height: 25px; }
+.emojiwrapper {
+  position: relative; }
 
-label {
-  display: block;
-  font: 1rem 'Fira Sans', sans-serif; }
+.emoji {
+  position: absolute;
+  top: 5px;
+  right: 10px; }
 
-input,
-label {
-  margin: 0.4rem 0; }
+#textarea_post {
+  width: 100%;
+  box-sizing: border-box; }
 
 /*# sourceMappingURL=style.css.map */

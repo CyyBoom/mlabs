@@ -1,0 +1,17 @@
+@import "./utilities/variables";
+
+.grid-container-home {
+    text-align: center;
+} 
+
+.scheduele_button1 {
+    width: 184px;
+    height: 45px;
+    flex-shrink: 0;
+    border-radius: 5px;
+    border: 1px solid $orangecolor;
+    background-color: $lightorangecolor;
+    color: $whitecolor;
+    cursor: $pointer;
+    margin-top: 2%;
+}
