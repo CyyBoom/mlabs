@@ -1,0 +1,30 @@
+@import "./utilities/variables";
+
+.grid-container.table-responsive {
+    display: grid;
+    grid-template-columns: auto;
+    gap: 10px;
+    padding: 10px;
+}
+
+.scheduele_list {
+    color: $darkgray2;
+    font-family: $font-family;
+    font-size: $font-size;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid $lightgraycolor3;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 16px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
