@@ -60,10 +60,6 @@ function Scheduler() {
     const handleCancel = () => {
         setShowModal(true);
     };
-
-    const handleApprove = () => {
-        setShowModal(true);
-    };
     
     const handleConfirmCancel = () => {
         setSelectedImage(null);
