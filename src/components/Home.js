@@ -1,4 +1,4 @@
-import initial from '../images/vetorposts.png';
+import images from '../images/index';
 import { Link } from "react-router-dom";
 
 function Home() {
@@ -6,7 +6,7 @@ function Home() {
         <>
             <div className="grid-container-home">
                 <div className="item">   
-                    <img src={initial} className="initial" alt="initial" />
+                    <img src={images.initial} className="initial" alt="initial" />
                 </div>
                 <div className="item">   
                     <Link to="/Schedueler">

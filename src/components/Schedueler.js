@@ -1,23 +1,5 @@
 import React, { useState } from 'react';
-import instagram from '../images/icon-instagram.png';
-import linkedin from '../images/icon-linkedin.png';
-import youtube from '../images/icon-youtube.png';
-import pinterest from '../images/icon-pinterest.png';
-import twitter from '../images/icon-twitter.png';
-import facebook from '../images/icon-facebook.png';
-import postdefault from '../images/post-preview.png';
-import imagepreview from '../images/imagepreview.png';
-import captionpreview from '../images/captionpreview.png';
-import heart from '../images/heart.png';
-import instagramlogopost from '../images/instagramlogopost.png';
-import linkedinlogopost from '../images/linkedinlogopost.png';
-import emojithumbnail from '../images/emojithumbnail.png';
-import bookmark from '../images/bookmark.png';
-import comment from '../images/comment.png';
-import commentlinkedin from '../images/commentlinkedin.png';
-import send from '../images/send.png';
-import like from '../images/like.png';
-import upload_image from '../images/upload_image.png';
+import images from '../images/index';
 import axios from 'axios';
 import Dropzone from 'react-dropzone';
 import DatePicker from 'react-datepicker';
@@ -26,7 +8,6 @@ import data from '@emoji-mart/data'
 import Picker from '@emoji-mart/react'
 import 'react-datepicker/dist/react-datepicker.css';
 import { Link } from "react-router-dom";
-
 
 function Scheduler() {
     const [selectedDate, setSelectedDate] = useState(new Date());
@@ -89,6 +70,8 @@ function Scheduler() {
         setCaption('');
         setSelectedDate(new Date());
         setShowModal(false);
+        setInstagramSchedule(false);
+        setLinkedinSchedule(false);
     };
     
     const handleModalClose = () => {
@@ -108,22 +91,22 @@ function Scheduler() {
                     <p className="tittle">Redes sociais</p>
                     <div className="socialmidia_icons"> 
                         {instagramSchedule && 
-                            <img src={instagramlogopost} onClick={() => setInstagramSchedule(!instagramSchedule)} className="instagram" alt="instagram" />
+                            <img src={images.instagramlogopost} onClick={() => setInstagramSchedule(!instagramSchedule)} className="instagram" alt="instagram" />
                         }
                         {!instagramSchedule && 
-                            <img src={instagram} onClick={() => setInstagramSchedule(!instagramSchedule)} className="instagram" alt="instagram" />
+                            <img src={images.instagram} onClick={() => setInstagramSchedule(!instagramSchedule)} className="instagram" alt="instagram" />
                         }
 
                         {linkedinSchedule && 
-                            <img src={linkedinlogopost} onClick={() => setLinkedinSchedule(!linkedinSchedule)} className="linkedin" alt="linkedin" />
+                            <img src={images.linkedinlogopost} onClick={() => setLinkedinSchedule(!linkedinSchedule)} className="linkedin" alt="linkedin" />
                         }
                         {!linkedinSchedule && 
-                            <img src={linkedin} onClick={() => setLinkedinSchedule(!linkedinSchedule)} className="linkedin" alt="linkedin" />
+                            <img src={images.linkedin} onClick={() => setLinkedinSchedule(!linkedinSchedule)} className="linkedin" alt="linkedin" />
                         }
-                        <img src={youtube} className="youtube" alt="youtube" />
-                        <img src={pinterest} className="pinterest" alt="pinterest" />
-                        <img src={twitter} className="twitter" alt="twitter" />
-                        <img src={facebook} className="facebook" alt="facebook" />
+                        <img src={images.youtube} className="youtube" alt="youtube" />
+                        <img src={images.pinterest} className="pinterest" alt="pinterest" />
+                        <img src={images.twitter} className="twitter" alt="twitter" />
+                        <img src={images.facebook} className="facebook" alt="facebook" />
                     </div>
                 </div>
                 <div className="postdate">
@@ -141,35 +124,35 @@ function Scheduler() {
                 <div className="postpreview">
                     <p className="tittle">Visualização do post</p>
                     <div className='previewwrapper'>
-                        {(!selectedImage && !caption && !instagramSchedule && !linkedinSchedule) && (
+                        {(!instagramSchedule && !linkedinSchedule) && (
                             <div className="previewdraft">
                                 <p className="image_message">Aguardando conteúdo. Informe os canais e as mídias desejadas para visualização.</p>
                                 <>
-                                    <img src={imagepreview} className="imagepreview" alt="imagepreview" />
+                                    <img src={images.imagepreview} className="imagepreview" alt="imagepreview" />
                                     <br/>
-                                    <img src={captionpreview} className="captionpreview" alt="captionpreview" />
+                                    <img src={images.captionpreview} className="captionpreview" alt="captionpreview" />
                                 </>
                             </div>
                         )}
                         {instagramSchedule  && (
                             <div className="preview user">
                                 <div className='previewheader'>
-                                    <img src={instagramlogopost} className="instagramlogopost" alt="instagramlogopost" />
+                                    <img src={images.instagramlogopost} className="instagramlogopost" alt="instagramlogopost" />
                                     <span>Anselmo Carlos</span>
                                 </div>
-                                <div>
-                                    {selectedImage && <img src={URL.createObjectURL(selectedImage)} alt="Selected" width="200" />}                                    
-                                    {!selectedImage && <img src={imagepreview} className="imagepreview" alt="imagepreview" />}
+                                <div className='postimage'>
+                                    {selectedImage && <img src={URL.createObjectURL(selectedImage)} alt="Selected" width="100%" />}                                    
+                                    {!selectedImage && <img src={images.imagepreview} className="imagepreview" alt="imagepreview" />}
                                 </div>
                                 <div className="interative">
                                     <div class="interativeitem">
-                                        <img src={heart} className="heart" alt="heart" />
+                                        <img src={images.heart} className="heart" alt="heart" />
                                     </div>
                                     <div class="interativeitem">
-                                        <img src={comment} className="comment" alt="comment" />
+                                        <img src={images.comment} className="comment" alt="comment" />
                                     </div>
                                     <div class="interativeitem">
-                                        <img src={bookmark} className="bookmark" alt="bookmark" />
+                                        <img src={images.bookmark} className="bookmark" alt="bookmark" />
                                     </div>
                                 </div>
                                 
@@ -185,7 +168,7 @@ function Scheduler() {
                         {linkedinSchedule  && (
                             <div className="preview user">
                                 <div className='previewheader'>
-                                    <img src={linkedinlogopost} className="linkedinlogopost" alt="linkedinlogopost" />
+                                    <img src={images.linkedinlogopost} className="linkedinlogopost" alt="linkedinlogopost" />
                                     <span>Anselmo Carlos</span>
                                 </div>
                                 <div>
@@ -196,12 +179,18 @@ function Scheduler() {
                                     {caption}
                                 </div>
                                     {selectedImage && <img src={URL.createObjectURL(selectedImage)} alt="Selected" width="200" />}                                    
-                                    {!selectedImage && <img src={imagepreview} className="imagepreview" alt="imagepreview" />}
+                                    {!selectedImage && <img src={images.imagepreview} className="imagepreview" alt="imagepreview" />}
                                 </div>
                                 <div className="interative">
-                                    <img src={heart} className="heart" alt="heart" />
-                                    <img src={comment} className="comment" alt="comment" />
-                                    <img src={bookmark} className="bookmark" alt="bookmark" />
+                                    <div class="interativeitem">
+                                        <img src={images.like} className="like" alt="like" />
+                                    </div>
+                                    <div class="interativeitem">
+                                        <img src={images.commentlinkedin} className="commentlinkedin" alt="comment" />
+                                    </div>
+                                    <div class="interativeitem">
+                                        <img src={images.send} className="send" alt="send" />
+                                    </div>
                                 </div>
                                 
                             </div>
@@ -225,24 +214,20 @@ function Scheduler() {
                         {showEmojiPicker && (
                             <Picker data={data} onEmojiSelect={handleEmojiSelect} />
                         )}
-                        </div>
-                    
-                    
+                    </div>                    
                 </div>
                 <div className="posttext">
                     <p className="tittle">Upload de imagem</p>
-
                     <Dropzone onDrop={handleImageDrop} accept="image/*" multiple={false}>
                         {({ getRootProps, getInputProps }) => (
                         <div {...getRootProps()} className="dropzone">
                             <input {...getInputProps()} />
-                            <img src={upload_image} className="upload_image" alt="upload_image" />
+                            <img src={images.upload_image} className="upload_image" alt="upload_image" />
                             <p className="image_message">Arraste e solte uma imagem aqui ou clique no botão abaixo</p>
                             <button type="button" className="draft_button">Pesquisar imagens</button>
                         </div>
                         )}
                     </Dropzone>
-              
                 </div>
             </div>
 
@@ -256,8 +241,6 @@ function Scheduler() {
                         onClick={schedulePost}
                     >Agendar</button>
                 </div>
-
-
             </div>
 
             <Modal isOpen={showModal} contentLabel="Salvar">
@@ -267,11 +250,11 @@ function Scheduler() {
                 <button type="button" className="draft_button" onClick={handleModalClose}>Cancelar</button>
             </Modal>   
             <Modal isOpen={success} contentLabel="Salvo">
-                <img src={emojithumbnail} className="App-logo" alt="logo" />
+                <img src={images.emojithumbnail} className="App-logo" alt="logo" />
                 <p className='modal_tit_sucess'>Agendado com sucesso!</p>
-                <button className="scheduele_button">
-                    <Link to="/PostList">OK</Link>
-                </button>
+                <Link to="/PostList" className="scheduele_button sucess">
+                        OK
+                </Link>
             </Modal>      
         </>
     );

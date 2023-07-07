@@ -116,10 +116,13 @@
   text-align: $center;
 }
 
-a  {
+.scheduele_button,.sucess  {
+  background-color: $bluecolor;
   color: $whitecolor;
-  text-align: $center;
   text-decoration: none;
+  width: 184px;
+  height: 45px;
+  flex-shrink: 0;
 }
 
 #textarea_post {  
@@ -156,10 +159,14 @@ img.imagepreview {
 }
 
 .ReactModal__Content.ReactModal__Content--after-open {
-  width: 300px;
+  width: 872px;
   margin: auto;
-  height: 350px;
+  height: 419px;
   background-color: $whitecolor1 !important;
+  text-align: center;
+  img {
+    padding-top: 40px;
+  }
 }
 
 .interative {
@@ -171,4 +178,15 @@ img.imagepreview {
       margin-right: 0px;
     }
   }
+}
+
+.postimage {
+  margin: 0 -10px;
+}
+
+a.scheduele_button {
+  width: 160px;
+  display: block;
+  height: 27px;
+  margin: 0 auto;
 }
