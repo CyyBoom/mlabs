@@ -11,7 +11,7 @@ function Header() {
                 </div>
                 <div className="item">
                     <div className="user_name">
-                        <p>Anselmo Carlos</p>
+                        <p className="user">Anselmo Carlos</p>
                     </div>
                     <img src={avatar} className="avatar" alt="logo" />
                 </div>

@@ -17,7 +17,7 @@
     cursor: $pointer;
 }
 
-.scheduele_button, .draft_button {
+.scheduele_button, .draft_button, button.disable {
     width: 184px;
     height: 45px;
     flex-shrink: 0;
@@ -25,7 +25,7 @@
     border: $bluecolor 1px solid;
 }
 
-.scheduele_button {
+.scheduele_button,button.disable {
     background-color: $bluecolor;
     color: $whitecolor;
 }

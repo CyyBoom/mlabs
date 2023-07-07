@@ -6,10 +6,17 @@ import pinterest from '../images/icon-pinterest.png';
 import twitter from '../images/icon-twitter.png';
 import facebook from '../images/icon-facebook.png';
 import postdefault from '../images/post-preview.png';
+import imagepreview from '../images/imagepreview.png';
+import captionpreview from '../images/captionpreview.png';
 import heart from '../images/heart.png';
 import instagramlogopost from '../images/instagramlogopost.png';
+import linkedinlogopost from '../images/linkedinlogopost.png';
+import emojithumbnail from '../images/emojithumbnail.png';
 import bookmark from '../images/bookmark.png';
 import comment from '../images/comment.png';
+import commentlinkedin from '../images/commentlinkedin.png';
+import send from '../images/send.png';
+import like from '../images/like.png';
 import upload_image from '../images/upload_image.png';
 import axios from 'axios';
 import Dropzone from 'react-dropzone';
@@ -44,6 +51,9 @@ function Scheduler() {
     };
 
     const schedulePost = () => {
+        if(!instagramSchedule && !linkedinSchedule) {
+            return;
+        }
         const formattedDate = selectedDate.toISOString();
         const formData = new FormData();
         formData.append('image', selectedImage);
@@ -105,7 +115,7 @@ function Scheduler() {
                         }
 
                         {linkedinSchedule && 
-                            <img src={instagramlogopost} onClick={() => setLinkedinSchedule(!linkedinSchedule)} className="linkedin" alt="linkedin" />
+                            <img src={linkedinlogopost} onClick={() => setLinkedinSchedule(!linkedinSchedule)} className="linkedin" alt="linkedin" />
                         }
                         {!linkedinSchedule && 
                             <img src={linkedin} onClick={() => setLinkedinSchedule(!linkedinSchedule)} className="linkedin" alt="linkedin" />
@@ -131,46 +141,77 @@ function Scheduler() {
                 <div className="postpreview">
                     <p className="tittle">Visualização do post</p>
                     <div className='previewwrapper'>
-                        {(!selectedImage || !caption) && (
-                            <img src={postdefault} className="postdefault" alt="postdefault" />
+                        {(!selectedImage && !caption && !instagramSchedule && !linkedinSchedule) && (
+                            <div className="previewdraft">
+                                <p className="image_message">Aguardando conteúdo. Informe os canais e as mídias desejadas para visualização.</p>
+                                <>
+                                    <img src={imagepreview} className="imagepreview" alt="imagepreview" />
+                                    <br/>
+                                    <img src={captionpreview} className="captionpreview" alt="captionpreview" />
+                                </>
+                            </div>
                         )}
-                        {instagramSchedule && selectedImage && caption && (
-                            <div className="preview">
-                                <img src={instagramlogopost} className="instagramlogopost" alt="instagramlogopost" />
-                                Instagram
-                                <div>
-                                    <img src={URL.createObjectURL(selectedImage)} alt="Selected" width="200" />
+                        {instagramSchedule  && (
+                            <div className="preview user">
+                                <div className='previewheader'>
+                                    <img src={instagramlogopost} className="instagramlogopost" alt="instagramlogopost" />
+                                    <span>Anselmo Carlos</span>
                                 </div>
-                                <img src={heart} className="heart" alt="heart" />
-                                <img src={comment} className="comment" alt="comment" />
-                                <img src={bookmark} className="bookmark" alt="bookmark" />
                                 <div>
+                                    {selectedImage && <img src={URL.createObjectURL(selectedImage)} alt="Selected" width="200" />}                                    
+                                    {!selectedImage && <img src={imagepreview} className="imagepreview" alt="imagepreview" />}
+                                </div>
+                                <div className="interative">
+                                    <div class="interativeitem">
+                                        <img src={heart} className="heart" alt="heart" />
+                                    </div>
+                                    <div class="interativeitem">
+                                        <img src={comment} className="comment" alt="comment" />
+                                    </div>
+                                    <div class="interativeitem">
+                                        <img src={bookmark} className="bookmark" alt="bookmark" />
+                                    </div>
+                                </div>
+                                
+                                <div className="caption">
+                                    {!caption && 
+                                        <p id="textarea_post">Aqui vai o texto descritivo desse post</p>
+                                    }
                                     {caption}
                                 </div>
                             </div>
                         )}     
                     
-                        {linkedinSchedule && selectedImage && caption && (
-                            <div className="preview">
-                                <img src={instagramlogopost} className="instagramlogopost" alt="instagramlogopost" />
-                                linkedin
-                                <div>
-                                    <img src={URL.createObjectURL(selectedImage)} alt="Selected" width="200" />
+                        {linkedinSchedule  && (
+                            <div className="preview user">
+                                <div className='previewheader'>
+                                    <img src={linkedinlogopost} className="linkedinlogopost" alt="linkedinlogopost" />
+                                    <span>Anselmo Carlos</span>
                                 </div>
-                                <img src={heart} className="heart" alt="heart" />
-                                <img src={comment} className="comment" alt="comment" />
-                                <img src={bookmark} className="bookmark" alt="bookmark" />
                                 <div>
+                                <div className="caption">
+                                    {!caption && 
+                                        <p id="textarea_post">Aqui vai o texto descritivo desse post</p>
+                                    }
                                     {caption}
                                 </div>
+                                    {selectedImage && <img src={URL.createObjectURL(selectedImage)} alt="Selected" width="200" />}                                    
+                                    {!selectedImage && <img src={imagepreview} className="imagepreview" alt="imagepreview" />}
+                                </div>
+                                <div className="interative">
+                                    <img src={heart} className="heart" alt="heart" />
+                                    <img src={comment} className="comment" alt="comment" />
+                                    <img src={bookmark} className="bookmark" alt="bookmark" />
+                                </div>
+                                
                             </div>
-                        )}         
+                        )}      
                     </div>  
                 </div> 
                 <div className="posttext">
                     <p className="tittle">Texto do post</p>
                     <div variant="secondary" className="ml-2 emojiwrapper">
-                        <div onClick={() => setShowEmojiPicker(!showEmojiPicker)} class="emoji">
+                        <div onClick={() => setShowEmojiPicker(!showEmojiPicker)} className="emoji">
                             😊
                         </div>
                         <textarea
@@ -211,7 +252,7 @@ function Scheduler() {
                     <button type="button" className="draft_button">Salvar Rascunho</button>
                     <button
                         type="button"
-                        className={(!instagramSchedule && !linkedinSchedule) ? 'disable ' : "scheduele_button"}
+                        className="scheduele_button"
                         onClick={schedulePost}
                     >Agendar</button>
                 </div>
@@ -220,13 +261,17 @@ function Scheduler() {
             </div>
 
             <Modal isOpen={showModal} contentLabel="Salvar">
-                <p className='modal_tit'>Salvar alterações?</p>
+                <p className='modal_tit'>Todas as informações preenchidas serão perdidas</p>
+                <p className='modal_tit'>Deseja continuar?</p>
                 <button type="button" className="scheduele_button" onClick={handleConfirmCancel}>Confirmar</button>
                 <button type="button" className="draft_button" onClick={handleModalClose}>Cancelar</button>
             </Modal>   
             <Modal isOpen={success} contentLabel="Salvo">
-                <p className='modal_tit'>Agendado com sucesso!</p>
-                <Link to="/PostList">ok</Link>
+                <img src={emojithumbnail} className="App-logo" alt="logo" />
+                <p className='modal_tit_sucess'>Agendado com sucesso!</p>
+                <button className="scheduele_button">
+                    <Link to="/PostList">OK</Link>
+                </button>
             </Modal>      
         </>
     );

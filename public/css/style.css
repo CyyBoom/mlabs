@@ -1,4 +1,7 @@
-/* Grid Container */
+/*Colors*/
+/*Cursor*/
+/*Fonte*/
+/*Text-align*/
 .grid-container-header {
   display: grid;
   grid-template-columns: auto auto;
@@ -17,18 +20,22 @@
   background: url(<path-to-image>), lightgray 50%/cover no-repeat; }
 
 .user_name {
+  float: right;
+  padding-left: 2%; }
+
+.user {
   color: #000;
   text-align: center;
   font-size: 14px;
   font-family: Poppins;
   font-style: normal;
   font-weight: 500;
-  line-height: normal;
-  float: right;
-  padding-left: 2%; }
+  line-height: normal; }
 
 /*Colors*/
 /*Cursor*/
+/*Fonte*/
+/*Text-align*/
 .grid-container-footer {
   display: grid;
   grid-template-columns: auto;
@@ -43,14 +50,14 @@
   margin: 0 2% 2% 0;
   cursor: pointer; }
 
-.scheduele_button, .draft_button {
+.scheduele_button, .draft_button, button.disable {
   width: 184px;
   height: 45px;
   flex-shrink: 0;
   border-radius: 5px;
   border: #2596be 1px solid; }
 
-.scheduele_button {
+.scheduele_button, button.disable {
   background-color: #2596be;
   color: #FFFFFF; }
 
@@ -65,6 +72,8 @@
 
 /*Colors*/
 /*Cursor*/
+/*Fonte*/
+/*Text-align*/
 .grid-container-home {
   text-align: center; }
 
@@ -81,11 +90,13 @@
 
 /*Colors*/
 /*Cursor*/
+/*Fonte*/
+/*Text-align*/
 .grid-container-schedueler {
+  background-color: #E0E0E0;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 10px;
-  background-color: #E0E0E0;
   padding: 10px; }
 
 .posttext {
@@ -95,25 +106,40 @@
   grid-column: 3 / span 2;
   grid-row: 1 / span 3; }
   .postpreview .previewwrapper {
-    display: flex;
     align-items: center;
+    display: flex;
     overflow-y: auto; }
     .postpreview .previewwrapper .preview {
-      margin: 10px; }
+      margin: 10px;
+      padding: 10px; }
 
 .socialmidia_icons {
-  padding-left: 5%; }
+  padding: 10px;
+  display: flex;
+  justify-content: space-between; }
+  .socialmidia_icons img {
+    width: 33px;
+    display: flex; }
 
 .socialmidia, .postdate, .posttext, .imageupload, .postpreview, .preview {
+  background-color: #FFFFFF;
   border: 1px solid #989898;
-  border-radius: 4px;
-  background-color: #FFFFFF; }
+  border-radius: 4px; }
+
+.postdate input {
+  margin: 0 10px; }
 
 .tittle {
-  border-bottom: 1px solid #989898; }
+  border-bottom: 1px solid #989898;
+  color: #333;
+  font-family: Poppins;
+  font-size: 16px;
+  padding-left: 10px;
+  margin-top: 4px; }
 
-.instagram, .linkedin {
-  cursor: pointer; }
+.instagram, .linkedin, .emoji {
+  cursor: pointer;
+  width: 33px; }
 
 [type="date"] {
   background: #fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png) 70% 50% no-repeat; }
@@ -125,24 +151,85 @@
   opacity: 0; }
 
 .dropzone {
+  background: #FFFFFF;
   border-radius: 4px;
   border: 1px dashed #BDBDBD;
-  background: #FFFFFF;
-  text-align: center; }
+  text-align: center;
+  margin: 10px; }
 
 .image_message {
-  color: #828282; }
+  color: #828282;
+  font-family: Poppins;
+  font-size: 16px;
+  text-align: center; }
 
 .emojiwrapper {
-  position: relative; }
+  position: relative;
+  margin: 10px; }
 
 .emoji {
   position: absolute;
-  top: 5px;
-  right: 10px; }
+  right: 10px;
+  top: 5px; }
+
+.previewheader {
+  text-align: left;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px; }
+
+.instagramlogopost, .linkedinlogopost {
+  width: 40px;
+  margin-right: 10px; }
+
+.modal_tit_sucess {
+  font-size: 24px;
+  font-family: Poppins;
+  text-align: center; }
+
+a {
+  color: #FFFFFF;
+  text-align: center;
+  text-decoration: none; }
 
 #textarea_post {
-  width: 100%;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  color: #4F4F4F;
+  font-family: Poppins;
+  font-size: 14px;
+  padding: 5px;
+  width: 100%; }
+
+.caption {
+  float: left; }
+
+.previewdraft {
+  text-align: center; }
+
+.modal_tit {
+  text-align: center;
+  color: #000;
+  font-family: Poppins;
+  font-size: 16px; }
+
+img.captionpreview {
+  margin-top: -10px;
+  margin-left: 1px; }
+
+img.imagepreview {
+  margin-right: -2px; }
+
+.ReactModal__Content.ReactModal__Content--after-open {
+  width: 300px;
+  margin: auto;
+  height: 350px;
+  background-color: #FAFAFA !important; }
+
+.interative .interativeitem {
+  float: left;
+  margin-right: 10px; }
+  .interative .interativeitem:last-child {
+    float: right;
+    margin-right: 0px; }
 
 /*# sourceMappingURL=style.css.map */
